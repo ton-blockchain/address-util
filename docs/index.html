@@ -32,6 +32,10 @@
         margin-top: 30px;
     }
 
+    .bold {
+        font-weight: bold;
+    }
+
     .addr {
         margin-top: 8px;
         font-family: monospace;
@@ -70,9 +74,13 @@
         $('#result').innerHTML = (fromPublicKey ?
             '<div class="title">This public key gives v3R1 wallet with an address that can be represented in the following forms:</div>' :
             '<div class="title">This TON address can be represented in the following forms:</div>') +
-            '<div><div class="title">HEX:</div><div class="addr">' + address.toString(false, true, true) + '</div></div>' +
-            '<div><div class="title">Bounceable:</div><div class="addr">' + address.toString(true, true, true) + '</div></div>' +
-            '<div><div class="title">Non-bounceable:</div><div class="addr">' + address.toString(true, true, false) + '</div></div>';
+            '<div><div class="title">HEX:</div><div class="addr">' + address.toString(false) + '</div></div>' +
+            '<div class="title bold">Mainnet:</div>' +
+            '<div><div class="title">Bounceable:</div><div class="addr">' + address.toString(true, true, true, false) + '</div></div>' +
+            '<div><div class="title">Non-bounceable:</div><div class="addr">' + address.toString(true, true, false, false) + '</div></div>' +
+            '<div class="title bold">Testnet:</div>' +
+            '<div><div class="title">Bounceable:</div><div class="addr">' + address.toString(true, true, true, true) + '</div></div>' +
+            '<div><div class="title">Non-bounceable:</div><div class="addr">' + address.toString(true, true, false, true) + '</div></div>';
 
     }
 
